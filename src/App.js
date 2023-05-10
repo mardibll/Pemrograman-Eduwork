@@ -1,7 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
-
 function App() {
   const [users, setUsers] = useState({ name: "", nilai: "" });
   console.log(users.name, "ini nama");
@@ -10,44 +9,25 @@ function App() {
     const { name, value } = event.target;
     setUsers({ ...users, [name]: value });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(users.nilai);
     if (users.name === "" || users.nilai === "") {
-      alert("isi data");
-      if (users.nilai > 80) {
-        alert("anda di peringkat A");
-      }
-      if (users.nilai < 80) {
-        alert("anda di peringkat B");
-      } else {
-      }
+      alert("Input Your Date");
     }
-    if (users.nilai > 80) {
-      alert("anda di peringkat A");
-    }
-    if (users.nilai < 80) {
-      alert("anda di peringkat B");
+    if (users.nilai >= 80 && users.nilai <= 100) {
+      alert("Nilai anda A");
+    } else if (users.nilai >= 60 && users.nilai < 80) {
+      alert("Nilai anda B");
+    } else if (users.nilai >= 40 && users.nilai < 60) {
+      alert("Nilai anda C");
+    } else if (users.nilai >= 20 && users.nilai < 60) {
+      alert("Nilai anda D");
+    } else if (users.nilai >= 0 && users.nilai < 20) {
+      alert("Nilai anda E");
     } else {
     }
   };
-  let nilai = prompt("Input nilai: ");
-
-  if (nilai >= 80 && nilai <= 100) {
-    alert("Nilai anda A");
-  } else if (nilai >= 60 && nilai < 80) {
-    alert("Nilai anda B");
-  } else if (nilai >= 40 && nilai < 60) {
-    alert("Nilai anda C");
-  } else if (nilai >= 20 && nilai < 60) {
-    alert("Nilai anda D");
-  }
-  if (nilai === "") {
-    alert("isi data");
-  } else {
-    alert("Nilai anda E");
-  }
   return (
     <div className="App">
       <header className="App-header">
@@ -57,14 +37,20 @@ function App() {
             type="text"
             name="name"
             value={users.name}
+            placeholder="Please Input Your Name"
             onChange={handleInputChange}
           />
+        </div>
+        <div>
           <input
             type="number"
             name="nilai"
+            placeholder="Your Point"
             value={users.nilai}
             onChange={handleInputChange}
           />
+        </div>
+        <div>
           <button type="submit" onClick={handleSubmit}>
             Submit
           </button>
