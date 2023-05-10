@@ -32,6 +32,22 @@ function App() {
     } else {
     }
   };
+  let nilai = prompt("Input nilai: ");
+
+  if (nilai >= 80 && nilai <= 100) {
+    alert("Nilai anda A");
+  } else if (nilai >= 60 && nilai < 80) {
+    alert("Nilai anda B");
+  } else if (nilai >= 40 && nilai < 60) {
+    alert("Nilai anda C");
+  } else if (nilai >= 20 && nilai < 60) {
+    alert("Nilai anda D");
+  }
+  if (nilai === "") {
+    alert("isi data");
+  } else {
+    alert("Nilai anda E");
+  }
   return (
     <div className="App">
       <header className="App-header">
